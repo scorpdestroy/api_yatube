@@ -2,6 +2,11 @@ import pytest
 
 
 @pytest.fixture
+def password():
+    return "1234567"
+
+
+@pytest.fixture
 def group_1():
     from posts.models import Group
     return Group.objects.create(title='Группа 1', slug='group_1')
