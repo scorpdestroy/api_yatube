@@ -29,7 +29,9 @@ class TestJWT:
 
         username_invalid = "invalid_username_not_exists"
         password_invalid = "invalid pwd"
-        data_invalid = {"username": username_invalid, "password": password_invalid}
+        data_invalid = {
+            "username": username_invalid,
+            "password": password_invalid}
         response = client.post(url, data=data_invalid)
         code_expected = 401
         assert response.status_code == code_expected, (
@@ -43,7 +45,9 @@ class TestJWT:
             f"в поле {field}"
         )
         username_valid = user.username
-        data_invalid = {"username": username_valid, "password": password_invalid}
+        data_invalid = {
+            "username": username_valid,
+            "password": password_invalid}
         response = client.post(url, data=data_invalid)
         assert response.status_code == code_expected, (
             f"Убедитесь, что при запросе `{url}` без параметров, "

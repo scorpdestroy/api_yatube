@@ -28,7 +28,13 @@ class TestGroupAPI:
         ), "Проверьте, что `/api/v1/groups/{group.id}/` при запросе без токена возвращаете статус 200"
 
     @pytest.mark.django_db(transaction=True)
-    def test_group_get(self, user_client, post, another_post, group_1, group_2):
+    def test_group_get(
+            self,
+            user_client,
+            post,
+            another_post,
+            group_1,
+            group_2):
         response = user_client.get("/api/v1/groups/")
         assert (
             response.status_code == 200
@@ -77,7 +83,14 @@ class TestGroupAPI:
         ), "Проверьте, что при POST запросе на `/api/v1/groups/` нельзя создать сообщество через API"
 
     @pytest.mark.django_db(transaction=True)
-    def test_group_get(self, user_client, post, post_2, another_post, group_1, group_2):
+    def test_group_get(
+            self,
+            user_client,
+            post,
+            post_2,
+            another_post,
+            group_1,
+            group_2):
         response = user_client.get("/api/v1/groups/")
         assert (
             response.status_code == 200

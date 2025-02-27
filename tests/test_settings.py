@@ -4,7 +4,8 @@ from django.conf import settings
 
 class TestSettings:
 
-    @pytest.mark.parametrize("app", ("rest_framework", "rest_framework.authtoken"))
+    @pytest.mark.parametrize("app", ("rest_framework",
+                             "rest_framework.authtoken"))
     def test_drf_in_installed_apps(self, app):
         assert hasattr(settings, "INSTALLED_APPS"), (
             "Убедитель, что настройки проекта содержат переменную " "`INSTALLED_APPS`."
