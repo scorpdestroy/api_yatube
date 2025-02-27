@@ -8,7 +8,6 @@ from .permissions import AuthorOrReadOnly
 from rest_framework import permissions
 from rest_framework import filters
 from rest_framework import mixins
-from rest_framework.permissions import AllowAny
 
 
 class ListCreateViewSet(
@@ -32,7 +31,6 @@ class PostViewSet(viewsets.ModelViewSet):
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-    permission_classes = [AllowAny]
 
 
 class CommentViewSet(viewsets.ModelViewSet):
